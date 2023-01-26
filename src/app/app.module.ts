@@ -5,16 +5,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { PlayersListComponent } from './players-list/players-list.component';
+
+import { RouterModule } from '@angular/router';
+// import { PlayerFormComponent } from './players-list/player-form/player-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PlayerFormComponent } from './players-list/player-form/player-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PlayersListComponent,
+    PlayerFormComponent
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: '', component: PlayersListComponent, pathMatch: 'full' }
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
