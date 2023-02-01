@@ -17,13 +17,15 @@ export class PlayersListComponent {
 
   constructor(public dialog: MatDialog, private _snackBar: MatSnackBar, private playerService: PlayersService) { }
 
-  ngOnInit(): void {
-    this.getPlayers();
+    ngOnInit():void {
+     this.getPlayers();
   }
 
   // gets the players from db
-  async getPlayers() {
-    await this.playerService.getAllPlayers().subscribe((res: PlayerModel[] | undefined) => {
+   getPlayers() {
+    console.log('inside getplayer')
+     this.playerService.getAllPlayers().subscribe((res: PlayerModel[] | undefined) => {
+      console.log(res);
       this.dataSources = new MatTableDataSource(res);
     });
 
@@ -38,24 +40,26 @@ export class PlayersListComponent {
     let dialogRef = this.dialog.open(PlayerFormComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(res => {
+      console.log('in afterclosed')
+      console.log(res)
       if (res != 0) {
-        console.log('The dialog was closed but player was created');
+        console.log(' player was created');
 
         this._snackBar.open("Player was created Successfully", "Close", {
-          duration: 2000,
+          duration: 500,
         });
         this.getPlayers()
       }
       else {
         console.log('The dialog was closed');
       }
-
+      this.getPlayers()
     });
 
   }
 
   editPlayer(player: PlayerModel) {
-    console.log(player.name + " player to edit")
+    console.log(player.playerName + " player to edit")
 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -72,13 +76,14 @@ export class PlayersListComponent {
         console.log('The dialog was closed but player was edited');
 
         this._snackBar.open("Player was created Edited", "Close", {
-          duration: 2000,
+          duration: 500,
         });
         this.getPlayers()
       }
       else {
         console.log('The dialog was closed');
       }
+      this.getPlayers()
 
     });
   }
@@ -87,9 +92,11 @@ export class PlayersListComponent {
     console.log(player + " player to delete")
 
     await this.playerService.deletePlayer(player).subscribe((res: any) => {
+      this.getPlayers()
       this._snackBar.open("Player was Deleted Successfully", "Close", {
-        duration: 2000,
+        duration: 500,
       });
     });
+
   }
 }

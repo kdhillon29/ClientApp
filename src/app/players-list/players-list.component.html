@@ -1,18 +1,20 @@
 <div class="player-list">
 
 
+<div class="header">
 
-<h2>Soccer Player Table</h2>
-<button class="player-add" mat-raised-button color="primary" (click)="addPlayer()">Add Player</button>
+  <h2>Soccer Player Table</h2>
+  <button class="player-add" mat-raised-button color="primary" (click)="addPlayer()">Add Player</button>
+</div>
 <table mat-table [dataSource]="dataSources" class="mat-elevation-z8" style="width: 50%;">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.playerName}} </td>
     </ng-container>
 
     <ng-container matColumnDef="jerseyNumber">
       <th mat-header-cell *matHeaderCellDef> Jersey Number </th>
-      <td mat-cell *matCellDef="let element"> {{element.jerseyNumber}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.jeresyNumber}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

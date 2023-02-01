@@ -9,7 +9,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color:silver;
   justify-content: center;
   align-items: center;
-  height:50vh;
   padding:10px 20px;
   margin: 10px auto;
 
@@ -37,4 +36,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .player-add:hover{
   transform: translate(5px);
   opacity: .5;
+}
+.header{
+   position:sticky;
+   width:100%;
+   color: aliceblue;
+   top:0;
+  left:0;
+  right: 0;
+  z-index: 100;
+  background:grey;
+  opacity: .6;
+  text-align: center;
+  padding: 20px 5px;
+
 }

@@ -1,12 +1,12 @@
 export class PlayerModel {
 
   playerId: number;
-  name: string;
-  jerseyNumber: number;
+  playerName: string;
+  jeresyNumber: number;
 
-  constructor(playerId: number, name: string, jerseyNumber:number,) {
+  constructor(playerId: number, playerName: string, jeresyNumber:number,) {
     this.playerId = playerId;
-    this.name = name;
-    this.jerseyNumber = jerseyNumber;
+    this.playerName = playerName;
+    this.jeresyNumber = jeresyNumber;
   }
 }
