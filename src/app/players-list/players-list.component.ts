@@ -21,8 +21,8 @@ export class PlayersListComponent {
     this.getPlayers();
   }
 
+  // gets the players from db
   async getPlayers() {
-    console.log('this gets the players from db')
     await this.playerService.getAllPlayers().subscribe((res: PlayerModel[] | undefined) => {
       this.dataSources = new MatTableDataSource(res);
     });
