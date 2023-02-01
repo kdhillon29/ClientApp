@@ -2,3 +2,39 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.container{
+  display: flex;
+  width:80%;
+
+  background-color:silver;
+  justify-content: center;
+  align-items: center;
+  height:50vh;
+  padding:10px 20px;
+  margin: 10px auto;
+
+}
+.player-list{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items: center;
+  gap:10px;
+  width:700px;
+  flex-basis:80%;
+  /* min-width: 600px; */
+  margin:auto;
+
+}
+.player-add{
+  width:40%;
+  padding:10px ;
+  background-color:seagreen;
+  font-weight: 600;
+  transition: all .25s ease-in ;
+
+}
+.player-add:hover{
+  transform: translate(5px);
+  opacity: .5;
+}

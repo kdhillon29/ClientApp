@@ -1,5 +1,9 @@
+<div class="player-list">
+
+
+
 <h2>Soccer Player Table</h2>
-<button mat-raised-button color="primary" (click)="addPlayer()">Add Player</button>
+<button class="player-add" mat-raised-button color="primary" (click)="addPlayer()">Add Player</button>
 <table mat-table [dataSource]="dataSources" class="mat-elevation-z8" style="width: 50%;">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -27,3 +31,4 @@
       </td>
     </ng-container>
   </table>
+</div>

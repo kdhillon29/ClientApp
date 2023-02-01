@@ -7,10 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { PlayersListComponent } from './players-list/players-list.component';
 
-import { RouterModule } from '@angular/router';
-// import { PlayerFormComponent } from './players-list/player-form/player-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { PlayerFormComponent } from './players-list/player-form/player-form.component';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +26,7 @@ import { PlayerFormComponent } from './players-list/player-form/player-form.comp
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: PlayersListComponent, pathMatch: 'full' }
     ]),
