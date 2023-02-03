@@ -16,23 +16,23 @@ export class PlayersService {
   constructor(private httpClient: HttpClient) { }
 
   getAllPlayers(): Observable<any> {
-    return this.httpClient.get<any[]>(this.path + "/Players/GetPlayers");
+    return this.httpClient.get<any[]>(this.path + "GetPlayers");
   }
 
   editPlayer(player: PlayerModel): any {
     const header = new HttpHeaders().set('Content-type', 'application/json');
 
-    return this.httpClient.put(this.path + "/Players/Put", JSON.stringify(player), { headers: header })
+    return this.httpClient.put(this.path + "Put", JSON.stringify(player), { headers: header })
   }
 
   createNewPlayer(player : PlayerModel): any {
     const header = new HttpHeaders().set('Content-type', 'application/json');
 
-    return this.httpClient.post(this.path + "/Players/Post", JSON.stringify(player), { headers: header })
+    return this.httpClient.post(this.path + "Post", JSON.stringify(player), { headers: header })
   }
 
   deletePlayer(player: PlayerModel): any {
-    return this.httpClient.delete(this.path + "/Players/Delete/" + player.playerId)
+    return this.httpClient.delete(this.path + "Delete/" + player.playerId)
   }
 
 
