@@ -5,6 +5,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { PlayerModel } from '../models/player-model.model';
 import { PlayersService } from '../services/players.service';
 import { PlayerFormComponent } from './player-form/player-form.component';
+// import {MatProgressSpinner} from '@angular/material/progress-spinner';
+// import {MatProgressSpinnerModule} from '@angular/material'/
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-players-list',
@@ -14,19 +17,22 @@ import { PlayerFormComponent } from './player-form/player-form.component';
 export class PlayersListComponent {
   dataSources!: MatTableDataSource<PlayerModel>;
   displayedColumns: string[] = ['name', 'jerseyNumber', 'Actions'];
+  isLoading:boolean=false
 
   constructor(public dialog: MatDialog, private _snackBar: MatSnackBar, private playerService: PlayersService) { }
 
-    ngOnInit():void {
-     this.getPlayers();
+     ngOnInit():void {
+      this.isLoading=true
+       this.getPlayers();
   }
 
   // gets the players from db
-   getPlayers() {
+    async getPlayers() {
     console.log('inside getplayer')
      this.playerService.getAllPlayers().subscribe((res: PlayerModel[] | undefined) => {
       console.log(res);
       this.dataSources = new MatTableDataSource(res);
+      this.isLoading=false;
     });
 
   }

@@ -4,8 +4,16 @@
 <div class="header">
 
   <h2>Soccer Player Table</h2>
+  <!-- <mat-spinner></mat-spinner> -->
+
   <button class="player-add" mat-raised-button color="primary" (click)="addPlayer()">Add Player</button>
 </div>
+<ng-container *ngIf="isLoading" >
+    <div class="isLoading">
+
+      <mat-spinner></mat-spinner>
+    </div>
+</ng-container>
 <table mat-table [dataSource]="dataSources" class="mat-elevation-z8" style="width: 50%;">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name </th>
